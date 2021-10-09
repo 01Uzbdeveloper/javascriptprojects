@@ -1,0 +1,41 @@
+const monsterHealthBar = document.getElementById('monster-health');
+const playerHealthBar = document.getElementById('player-health');
+const bonusLifeEl = document.getElementById('bonus-life');
+
+const attackBtn = document.getElementById('attack-btn');
+const strongAttackBtn = document.getElementById('strong-attack-btn');
+const healbtn = document.getElementById('heal-btn');
+const logBtn = document.getElementById('log-btn');
+
+function adjustHealthBars(maxlife){
+    monsterHealthBar.max = maxlife;
+    monsterHealthBar.value = maxlife;
+    playerHealthBar.max = maxlife;
+    playerHealthBar.value = maxlife;
+}
+
+function dealMonsterDamage(damage){
+    const dealtDamage = Math.random() * damage;
+    monsterHealthBar.value -= dealtDamage ;
+    return dealtDamage;
+}
+
+function dealPlayerDamage(damage){
+    const dealtDamage = Math.random() * damage;
+    playerHealthBar.value -= dealtDamage ;
+    return dealtDamage;
+}
+function increasePlayerHealth(healValue){
+    playerHealthBar.value += healValue;
+}
+function resetGame(){
+    playerHealthBar.value = 100;
+    monsterHealthBar.value = 100;
+}
+function removeBonusLife() {
+  bonusLifeEl.parentNode.removeChild(bonusLifeEl);
+}
+
+function setPlayerHealth(health) {
+  playerHealthBar.value = health;
+}
